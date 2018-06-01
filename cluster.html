@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="head.load.js"></script>
+	<script>
+		head.load([
+			'fractal.js',
+			'schemas/nodeCluster.js'
+		]);
+	</script>
+</head>
+
+<svg id='core' onload='start()' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="900">
+<script>
+	<![CDATA[
+		function start() {
+			fractal.render(nodeCluster());
+		}
+	]]>
+</script>
+
+</svg>
+</html>

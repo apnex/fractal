@@ -1,0 +1,30 @@
+<svg id="core" onload="start()" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="380" height="240">
+	<path style="stroke:#03a9f4; fill:#81d4fa; stroke-width:4" d="M15 10 L365 10 Q370 10 370 15 L370 225 Q370 230 365 230 L15 230 Q10 230 10 225 L10 15 Q10 10 15 10 Z"/>
+	<path style="stroke:#212121; fill:#9e9e9e; stroke-width:4" d="M25 20 L355 20 Q360 20 360 25 L360 75 Q360 80 355 80 L25 80 Q20 80 20 75 L20 25 Q20 20 25 20 Z"/>
+	<path style="stroke:#424242; fill:#616161; stroke-width:2" d="M40 30 L340 30 Q350 30 350 40 L350 60 Q350 70 340 70 L40 70 Q30 70 30 60 L30 40 Q30 30 40 30 Z"/>
+	<path style="stroke:#03a9f4; fill:none; stroke-width:6" d="M50 50 L50 50 Q50 60 60 60 L60 60 Q70 60 70 50 L70 50 Q70 40 60 40 L60 40 Q50 40 50 50 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M90 34 L90 46 Q90 50 94 50 L166 50 Q170 50 170 46 L170 34 Q170 30 166 30 L94 30 Q90 30 90 34 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M90 54 L90 66 Q90 70 94 70 L166 70 Q170 70 170 66 L170 54 Q170 50 166 50 L94 50 Q90 50 90 54 Z"/>
+	<path style="stroke:#bdbdbd; fill:none; stroke-width:4" d="M180 50 L180 50 Q180 60 190 60 L190 60 Q200 60 200 50 L200 50 Q200 40 190 40 L190 40 Q180 40 180 50 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M210 34 L210 46 Q210 50 214 50 L286 50 Q290 50 290 46 L290 34 Q290 30 286 30 L214 30 Q210 30 210 34 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M210 54 L210 66 Q210 70 214 70 L286 70 Q290 70 290 66 L290 54 Q290 50 286 50 L214 50 Q210 50 210 54 Z"/>
+	<path style="stroke:#bdbdbd; fill:#424242; stroke-width:4" d="M300 50 L300 50 Q300 60 310 60 L330 60 Q340 60 340 50 L340 50 Q340 40 330 40 L310 40 Q300 40 300 50 Z"/>
+	<path style="stroke:#212121; fill:#9e9e9e; stroke-width:4" d="M25 90 L355 90 Q360 90 360 95 L360 145 Q360 150 355 150 L25 150 Q20 150 20 145 L20 95 Q20 90 25 90 Z"/>
+	<path style="stroke:#424242; fill:#616161; stroke-width:2" d="M40 100 L340 100 Q350 100 350 110 L350 130 Q350 140 340 140 L40 140 Q30 140 30 130 L30 110 Q30 100 40 100 Z"/>
+	<path style="stroke:#03a9f4; fill:none; stroke-width:6" d="M50 120 L50 120 Q50 130 60 130 L60 130 Q70 130 70 120 L70 120 Q70 110 60 110 L60 110 Q50 110 50 120 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M90 104 L90 116 Q90 120 94 120 L166 120 Q170 120 170 116 L170 104 Q170 100 166 100 L94 100 Q90 100 90 104 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M90 124 L90 136 Q90 140 94 140 L166 140 Q170 140 170 136 L170 124 Q170 120 166 120 L94 120 Q90 120 90 124 Z"/>
+	<path style="stroke:#bdbdbd; fill:none; stroke-width:4" d="M180 120 L180 120 Q180 130 190 130 L190 130 Q200 130 200 120 L200 120 Q200 110 190 110 L190 110 Q180 110 180 120 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M210 104 L210 116 Q210 120 214 120 L286 120 Q290 120 290 116 L290 104 Q290 100 286 100 L214 100 Q210 100 210 104 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M210 124 L210 136 Q210 140 214 140 L286 140 Q290 140 290 136 L290 124 Q290 120 286 120 L214 120 Q210 120 210 124 Z"/>
+	<path style="stroke:#bdbdbd; fill:#424242; stroke-width:4" d="M300 120 L300 120 Q300 130 310 130 L330 130 Q340 130 340 120 L340 120 Q340 110 330 110 L310 110 Q300 110 300 120 Z"/>
+	<path style="stroke:#212121; fill:#9e9e9e; stroke-width:4" d="M25 160 L355 160 Q360 160 360 165 L360 215 Q360 220 355 220 L25 220 Q20 220 20 215 L20 165 Q20 160 25 160 Z"/>
+	<path style="stroke:#424242; fill:#616161; stroke-width:2" d="M40 170 L340 170 Q350 170 350 180 L350 200 Q350 210 340 210 L40 210 Q30 210 30 200 L30 180 Q30 170 40 170 Z"/>
+	<path style="stroke:#03a9f4; fill:none; stroke-width:6" d="M50 190 L50 190 Q50 200 60 200 L60 200 Q70 200 70 190 L70 190 Q70 180 60 180 L60 180 Q50 180 50 190 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M90 174 L90 186 Q90 190 94 190 L166 190 Q170 190 170 186 L170 174 Q170 170 166 170 L94 170 Q90 170 90 174 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M90 194 L90 206 Q90 210 94 210 L166 210 Q170 210 170 206 L170 194 Q170 190 166 190 L94 190 Q90 190 90 194 Z"/>
+	<path style="stroke:#bdbdbd; fill:none; stroke-width:4" d="M180 190 L180 190 Q180 200 190 200 L190 200 Q200 200 200 190 L200 190 Q200 180 190 180 L190 180 Q180 180 180 190 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M210 174 L210 186 Q210 190 214 190 L286 190 Q290 190 290 186 L290 174 Q290 170 286 170 L214 170 Q210 170 210 174 Z"/>
+	<path style="stroke:#424242; fill:#bdbdbd; stroke-width:2" d="M210 194 L210 206 Q210 210 214 210 L286 210 Q290 210 290 206 L290 194 Q290 190 286 190 L214 190 Q210 190 210 194 Z"/>
+	<path style="stroke:#bdbdbd; fill:#424242; stroke-width:4" d="M300 190 L300 190 Q300 200 310 200 L330 200 Q340 200 340 190 L340 190 Q340 180 330 180 L310 180 Q300 180 300 190 Z"/>
+</svg>

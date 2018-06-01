@@ -98,7 +98,7 @@ opts do things
 
 For the **schema** file, it is defined as an external javascript asset (like `example1.js` above), with a single function returning a json object.  
 Syntax of a single `cell` is:  
-```json
+```javascript
 cell: {
 	body: [
 		[<cell-label1>, <cell-label2> ... <cell-label3>],
@@ -137,7 +137,7 @@ For purposes of brevity - the `function` and `return` statements will be ommitte
 This example shows a single node.
 It also defines `size`, `opts`, and `style` attributes.  
 ![test](./examples/oneNode.svg)  
-```json
+```javascript
 {
 	body: [
 		[0]

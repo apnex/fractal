@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="core" onload="start()" version="1.1" width="500" height="500">
+	 <path style="stroke:#558b2f; fill:#9ccc65; stroke-width:8" d="M90 20 L130 20 Q140 20 140 30 L140 70 Q140 80 150 80 L190 80 Q200 80 200 90 L200 130 Q200 140 190 140 L150 140 Q140 140 140 150 L140 190 Q140 200 130 200 L90 200 Q80 200 80 190 L80 150 Q80 140 70 140 L30 140 Q20 140 20 130 L20 90 Q20 80 30 80 L70 80 Q80 80 80 70 L80 30 Q80 20 90 20 Z"/>
+</svg>
