@@ -8,13 +8,11 @@ JSON Defined
 Automatic scaling  
 Deterministic outcome  
 Perfect Alignment of nodes  
-<p style="text-align: center;">
 ![nodeCluster](./examples/nodeCluster.svg)
 
 ![nodeClover](./examples/nodeClover.svg)
 
 ![nodeCpu](./examples/nodeCpu.svg)
-</p>
 #### Problem
 create new diagrams are hard  
 x,y positioning is annoying  
