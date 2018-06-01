@@ -9,9 +9,13 @@ Automatic scaling
 Deterministic outcome  
 Perfect Alignment of nodes  
 <p style="text-align: center;">
+
 ![nodeCluster](./examples/nodeCluster.svg)  
+
 ![nodeClover](./examples/nodeClover.svg)  
+
 ![nodeCpu](./examples/nodeCpu.svg)  
+
 </p>
 #### Problem
 create new diagrams are hard  
@@ -74,7 +78,7 @@ The `<cell-label>` is an arbitrary user-defined **INTEGER** that references the 
 This is used by the `map` construct to decide what gets rendered there.  
 `<cell-labels>` do not have to be unique - this allows for a `node` to be duplicated at multiple locations.  
 Syntax of a cell `body` is:  
-```json
+```javascript
 body: [
 	[<cell-label1>, <cell-label2> ... <cell-label3>],
 	[<cell-label1>, <cell-label2> ... <cell-label3>],
