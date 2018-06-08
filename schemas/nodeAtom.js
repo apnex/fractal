@@ -1,5 +1,5 @@
-function nodeAtom() {
-	return {
+function nodeAtom(opts) {
+	let schema = {
 		body: [
 			[1,6,2],
 			[5,0,7],
@@ -20,19 +20,15 @@ function nodeAtom() {
 				style: {
 					'stroke-width': 4,
 					'stroke': 'mLight-Blue-600',
-					'fill': 'mLight-Blue-300'
+					'fill': 'mWhite'
 				}
 			}
 		],
-		size: {x: 4, y: 4},
-		style: {
-			'stroke-width': 4,
-			'stroke': 'mLight-Blue-600',
-			'fill': 'mWhite'
-		},
+		size: {x:0, y:0},
 		opts: {
-			gap: {x:2, y:2},
-			radius: 10
+			gap: {x:2, y:2}
 		}
 	};
+	override(schema, opts);
+	return schema;
 }

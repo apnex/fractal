@@ -49,8 +49,20 @@ var ncell = {
 		//console.log(JSON.stringify(diag, null, "  "));
 		return diag;
 	},
+	collate: function(obj1, obj2) { //havent worked this out yet - need to allow for "defaults"
+		for(var p in obj2) {
+			if(obj2[p].constructor == Object) {
+				if(obj1[p]) {
+					collate(obj1[p], obj2[p]);
+					continue;
+				}
+			}
+			if(typeof obj1[p] === 'undefined') {
+				obj1[p] = obj2[p];
+			}
+		}
+	},
 	buildNodes: function(mgrid) {
-
 		// check for body or map first - error handling
 		if(typeof mgrid.body === 'undefined') {
 			mgrid.body = [[1]];
@@ -64,43 +76,26 @@ var ncell = {
 		let cellState = {};
 		for(let key of Object.keys(smap)) {
 			let cell = smap[key];
-			//if(typeof cell.map !== 'undefined') {
-			if(Object.keys(cell).length > 0) {
+			// convert following to selective nested merge function
+			if(typeof cell.size === 'undefined') {
+				if(typeof mgrid.size !== 'undefined') {
+					cell.size = mgrid.size;
+				}
+			}
+			if(typeof cell.style === 'undefined') {
+				if(typeof mgrid.style !== 'undefined') {
+					cell.style = mgrid.style;
+				}
+			}
+			if(typeof cell.opts === 'undefined') {
+				if(typeof mgrid.opts !== 'undefined') {
+					cell.opts = mgrid.opts;
+				}
+			}
+			if(typeof cell.map !== 'undefined' || typeof cell.tag != 'undefined') {
 				// tree recursion
-				// copy and pass parent params to child
-				// build / plug all defaults into mgrid node before recursion
-				if(typeof cell.size === 'undefined') {
-					if(typeof mgrid.size !== 'undefined') {
-						cell.size = mgrid.size; // need to re-do size/style inheritance
-					}
-				}
-				if(typeof cell.style === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
-					if(typeof mgrid.style !== 'undefined') {
-						cell.style = mgrid.style;
-					}
-				}
-				if(typeof cell.opts === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
-					if(typeof mgrid.opts !== 'undefined') {
-						cell.opts = mgrid.opts;
-					}
-				}
 				cellState[key] = ncell.buildNodes(cell);
 			} else {
-				if(typeof cell.size === 'undefined') {
-					if(typeof mgrid.size !== 'undefined') {
-						cell.size = mgrid.size; // need to re-do size/style inheritance
-					}
-				}
-				if(typeof cell.style === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
-					if(typeof mgrid.style !== 'undefined') {
-						cell.style = mgrid.style;
-					}
-				}
-				if(typeof cell.opts === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
-					if(typeof mgrid.opts !== 'undefined') {
-						cell.opts = mgrid.opts;
-					}
-				}
 				// is a leaf node - build node
 				cellState[key] = nnode.new(cell);
 			}
@@ -206,20 +201,6 @@ var ncell = {
 			grpCache[i].pos.y -= deltay;
 		}
 
-		// work out if tag present
-		//console.log(JSON.stringify(mgrid, null, "  "));
-		if(typeof mgrid.tag !== 'undefined') {
-			//cell.style = mgrid.style;
-			// build new blank handle node
-			let tagCell = nnode.new({
-				body: [[1]],
-				map: {1:{}},
-				size: {x:0, y:0}
-			});
-			tagCell.body[0].tag = mgrid.tag;
-			grpCache.push(tagCell.body[0]); // this is a hack to make nnode work
-		}
-
 		// build links
 		// check if link exists at current scope
 		// optimise: move attributes out to JSON definition - streamline attribute handling
@@ -230,6 +211,23 @@ var ncell = {
 					grpCache.unshift(nlink.new(vertices, mgrid.link[i])); // place link underneath nodes
 				}
 			}
+			// wipe tags after they are used? dirty eh?
+			for(let item of grpCache) {
+				if(item.tag) {
+					//delete(item.tag); //This breaks clover.html - because of need for global tags
+				}
+			}
+		}
+
+		// work out if tag present
+		if(typeof mgrid.tag !== 'undefined') {
+			let tagCell = nnode.new({
+				body: [[1]],
+				map: {1:{}},
+				size: {x:0, y:0}
+			});
+			tagCell.body[0].tag = mgrid.tag;
+			grpCache.push(tagCell.body[0]); // this is a hack to make nnode work
 		}
 
 		//console.log(JSON.stringify(grpCache, null, "  "));

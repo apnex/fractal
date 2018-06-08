@@ -16,3 +16,17 @@ var fractal = {
 		npath.render();
 	}
 }
+
+//useful functions
+function override(obj1, obj2) {
+        for(var p in obj2) {
+                if(obj2[p].constructor == Object) {
+                        if(obj1[p]) {
+                                override(obj1[p], obj2[p]);
+                                continue;
+                        }
+                }
+                obj1[p] = obj2[p];
+        }
+}
+
