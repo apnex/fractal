@@ -121,7 +121,6 @@ var npath = {
 		} // change to forEach
 	},
 	buildPaths: function(pathGroup) {
-
 		// syntax and defaults check: radius, handles, close
 		if(typeof pathGroup.opts === 'undefined') {
 			pathGroup['opts'] = self.opts;
@@ -131,7 +130,7 @@ var npath = {
 			pathGroup.opts['radius'] = self.opts.radius;
 		}
 
-		if(pathGroup.size.x > 0 && pathGroup.size.y > 0) { // if size is not 0, draw
+		if(pathGroup.size.x > 0 || pathGroup.size.y > 0) { // if size is not 0, draw
 			if(pathGroup.path) { // if path exists, draw
 				let opts = pathGroup.opts;
 				for(var i = 0, ilen = pathGroup.path.length; i < ilen; i++) {

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="head.load.js"></script>
-		<script>
-			head.load([
-				'fractal.js',
-				'schemas/nodeServer.js'
-			]);
-		</script>
-	</head>
-	<svg id='core' onload='start()' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<script>
-			<![CDATA[
-				function start() {
-					fractal.render(nodeServer());
-				}
-			]]>
-		</script>
-	</svg>
+<head>
+	<script src="head.load.js"></script>
+	<script>
+		head.load([
+			'fractal.js',
+			'schemas/nodeServer.js'
+		]);
+	</script>
+</head>
+<svg id='core' onload='start()' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<script>
+		<![CDATA[
+			function start() {
+				fractal.render(nodeServer());
+			}
+		]]>
+	</script>
+</svg>
 </html>

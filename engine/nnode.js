@@ -55,11 +55,13 @@ var nnode = { // this module should be structural only - no style or attributes
 			mySize = {x: 2, y: 2};
 		}
 
-		// set size
+		/* set tag
 		let myTag;
 		if(typeof cell.tag !== 'undefined') {
 			myTag = cell.tag;
 		}
+		*/
+		// tag handling moved to ncell - build zero size handles for all tags
 
 		// build path
 		let xSize = mySize.x / 2;
@@ -71,7 +73,7 @@ var nnode = { // this module should be structural only - no style or attributes
 		myPath.push([xSize * 1,  ySize * -1]);
 
 		// build node
-		let defNode = {
+		let defNode = { // need to reconsider pos/size and body/payload construct
 			pos: {x: 0, y: 0},
 			size: mySize,
 			body: [{
@@ -79,10 +81,20 @@ var nnode = { // this module should be structural only - no style or attributes
 				size	: mySize,
 				style	: {style: newStyle},
 				path	: myPath,
-				opts	: myOpts,
-				tag	: myTag
+				opts	: myOpts
 			}]
 		};
+
+		/* build node
+		let defNode = {
+			pos	: {x: 0, y: 0},
+			size	: mySize,
+			style	: {style: newStyle},
+			path	: myPath,
+			opts	: myOpts
+		};
+		//tag	: myTag
+		*/
 
 		return defNode;
 	}

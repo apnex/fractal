@@ -1,5 +1,4 @@
-head.load("schemas/nodePath.js");
-function nodeNest() {
+function nodeAtom() {
 	return {
 		body: [
 			[1,6,2],
@@ -7,18 +6,16 @@ function nodeNest() {
 			[4,8,3]
 		],
 		map: {
-			0: nodePath(),
-			1: {tag:"n1"},
-			2: {tag:"n2"},
-			3: {tag:"n3"},
-			4: {tag:"n4"}
+			1: {tag: "n1"},
+			2: {tag: "n2"},
+			3: {tag: "n3"},
+			4: {tag: "n4"}
 		},
 		link: [
 			{
 				path: ["n1","n2","n3","n4"],
 				opts: {
-					close: 1,
-					radius: 10
+					close: 1
 				},
 				style: {
 					'stroke-width': 4,
@@ -27,9 +24,15 @@ function nodeNest() {
 				}
 			}
 		],
-		size: {x:0, y:0},
+		size: {x: 4, y: 4},
+		style: {
+			'stroke-width': 4,
+			'stroke': 'mLight-Blue-600',
+			'fill': 'mWhite'
+		},
 		opts: {
-			gap: {x:2, y:2}
+			gap: {x:2, y:2},
+			radius: 10
 		}
 	};
 }

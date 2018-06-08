@@ -18,7 +18,7 @@ var nlink = { // this module should be structural only - no style or attributes
 
 		// override defaults where appropriate
 		let style = {
-			'stroke': colours['mOrange-500'],
+			'stroke': colours['mBlue-500'],
 			'fill': 'none', // default to transparent
 			'stroke-width': 4
 		};
@@ -103,10 +103,10 @@ var nlink = { // this module should be structural only - no style or attributes
 		}
 		return vertices;
 	},
-	path: function(myCell, tag) {
+	path: function(myCell, tags) {
 		let list = [];
-		for(var i = 0, ilen = tag.length; i < ilen; i++) {
-			let cells = nlink.find(myCell, tag[i]);
+		for(var i = 0, ilen = tags.length; i < ilen; i++) {
+			let cells = nlink.find(myCell, tags[i]);
 			for(var j = 0, jlen = cells.length; j < jlen; j++) {
 				list.push(cells[j]);
 			}

@@ -1,4 +1,4 @@
-var ncell = {
+var ancell = {
 	buildCell: function(cell) {
 		// move to ngine?!?!?!?
 		// build path definition
@@ -33,7 +33,6 @@ var ncell = {
 		// then remove path translation from this module
 		// also, why am I reconstructing the cell syntax again after I've already built the node? Consider removal and separation
 		// non-structural syntax check to be offloaded (opts)
-		//console.log(JSON.stringify(paths, null, "  "));
 		let diag = [];
 		for(let i = 0, ilen = paths.length; i < ilen; i++) {
 			diag.push({
@@ -64,43 +63,23 @@ var ncell = {
 		let cellState = {};
 		for(let key of Object.keys(smap)) {
 			let cell = smap[key];
-			//if(typeof cell.map !== 'undefined') {
-			if(Object.keys(cell).length > 0) {
+			// copy and pass parent params to child
+			// build / plug all defaults into mgrid node before recursion
+			if(typeof cell.size === 'undefined') {
+				if(typeof mgrid.size !== 'undefined') {
+					cell.size = mgrid.size;
+				}
+			}
+			if(typeof cell.style === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
+				if(typeof mgrid.style !== 'undefined') {
+					cell.style = mgrid.style;
+				}
+			}
+			// convert this into a new nnode.js call
+			if(typeof cell.map !== 'undefined') {
 				// tree recursion
-				// copy and pass parent params to child
-				// build / plug all defaults into mgrid node before recursion
-				if(typeof cell.size === 'undefined') {
-					if(typeof mgrid.size !== 'undefined') {
-						cell.size = mgrid.size; // need to re-do size/style inheritance
-					}
-				}
-				if(typeof cell.style === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
-					if(typeof mgrid.style !== 'undefined') {
-						cell.style = mgrid.style;
-					}
-				}
-				if(typeof cell.opts === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
-					if(typeof mgrid.opts !== 'undefined') {
-						cell.opts = mgrid.opts;
-					}
-				}
 				cellState[key] = ncell.buildNodes(cell);
 			} else {
-				if(typeof cell.size === 'undefined') {
-					if(typeof mgrid.size !== 'undefined') {
-						cell.size = mgrid.size; // need to re-do size/style inheritance
-					}
-				}
-				if(typeof cell.style === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
-					if(typeof mgrid.style !== 'undefined') {
-						cell.style = mgrid.style;
-					}
-				}
-				if(typeof cell.opts === 'undefined') { // this is where style inheritance is breaking - need to fix (deep merge!)
-					if(typeof mgrid.opts !== 'undefined') {
-						cell.opts = mgrid.opts;
-					}
-				}
 				// is a leaf node - build node
 				cellState[key] = nnode.new(cell);
 			}
@@ -176,8 +155,7 @@ var ncell = {
 				if(smap[idx]) { // if exist in map
 					let unitx = anchorx[j];
 					let unity = anchory[i];
-					let cells = cellState[idx].body; // change "body" to "payload" - ie differentiate forward from reverse structure
-					//let cells = cellState[idx];
+					let cells = cellState[idx].body;
 					for(let p = 0, plen = cells.length; p < plen; p++) {
 						var newCell = JSON.parse(JSON.stringify(cells[p])); // copy node -- replace with nnode.js function to build new node
 						newCell.pos.x += unitx;
@@ -207,17 +185,18 @@ var ncell = {
 		}
 
 		// work out if tag present
-		//console.log(JSON.stringify(mgrid, null, "  "));
+		//console.log(JSON.stringify(grpCache, null, "  "));
+		console.log(JSON.stringify(mgrid, null, "  "));
 		if(typeof mgrid.tag !== 'undefined') {
 			//cell.style = mgrid.style;
 			// build new blank handle node
 			let tagCell = nnode.new({
 				body: [[1]],
 				map: {1:{}},
-				size: {x:0, y:0}
+				size: {x:0, y:0},
+				tag: mgrid.tag
 			});
-			tagCell.body[0].tag = mgrid.tag;
-			grpCache.push(tagCell.body[0]); // this is a hack to make nnode work
+			grpCache.push(tagCell.body);
 		}
 
 		// build links
@@ -232,7 +211,6 @@ var ncell = {
 			}
 		}
 
-		//console.log(JSON.stringify(grpCache, null, "  "));
 		let grpState = {
 			pos: {x: 0, y: 0},
 			size: {x: countx, y: county},
