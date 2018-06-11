@@ -21,7 +21,6 @@ var nnode = { // this module should be structural only - no style or attributes
 		// set style
 		let myStyle = {
 			'stroke': colours['mOrange-500'],
-			//'fill': colours['mOrange-200'],
 			'fill': 'none',
 			'stroke-width': 2
 		};
@@ -40,12 +39,6 @@ var nnode = { // this module should be structural only - no style or attributes
 				myStyle['stroke-width'] = cell.style['stroke-width'];
 			}
 		}
-		let newStyle = '';
-		let delimiter = '';
-		for(let key of Object.keys(myStyle)) {
-			newStyle += delimiter + key + ':' + myStyle[key];
-			delimiter = '; ';
-		}
 
 		// set size
 		let mySize;
@@ -54,14 +47,6 @@ var nnode = { // this module should be structural only - no style or attributes
 		} else {
 			mySize = {x: 2, y: 2};
 		}
-
-		/* set tag
-		let myTag;
-		if(typeof cell.tag !== 'undefined') {
-			myTag = cell.tag;
-		}
-		*/
-		// tag handling moved to ncell - build zero size handles for all tags
 
 		// build path
 		let xSize = mySize.x / 2;
@@ -79,22 +64,11 @@ var nnode = { // this module should be structural only - no style or attributes
 			body: [{
 				pos	: {x: 0, y: 0},
 				size	: mySize,
-				style	: {style: newStyle},
+				style	: {style: myStyle},
 				path	: myPath,
 				opts	: myOpts
 			}]
 		};
-
-		/* build node
-		let defNode = {
-			pos	: {x: 0, y: 0},
-			size	: mySize,
-			style	: {style: newStyle},
-			path	: myPath,
-			opts	: myOpts
-		};
-		//tag	: myTag
-		*/
 
 		return defNode;
 	}

@@ -122,29 +122,35 @@ var npath = {
 	},
 	buildPaths: function(pathGroup) {
 		// syntax and defaults check: radius, handles, close
-		if(typeof pathGroup.opts === 'undefined') {
-			pathGroup['opts'] = self.opts;
-			//console.log(JSON.stringify(pathGroup, null, "  "));
-		}
-		if(typeof pathGroup.opts.radius === 'undefined') {
-			pathGroup.opts['radius'] = self.opts.radius;
-		}
-
-		if(pathGroup.size.x > 0 || pathGroup.size.y > 0) { // if size is not 0, draw
-			if(pathGroup.path) { // if path exists, draw
-				let opts = pathGroup.opts;
-				for(var i = 0, ilen = pathGroup.path.length; i < ilen; i++) {
-					let path = {
-						attributes:	pathGroup.attributes,
-						opts:		{
-							close	: opts.close,
-							handles	: opts.handles,
-							radius	: opts.radius
-						},
-						path:		pathGroup.path[i]
-					};
-					//console.log(JSON.stringify(path, null, "  "));
-					npath.buildPath(path);
+		let myStyle = pathGroup.attributes.style;
+		if(myStyle.stroke != 'none' || myStyle.fill != 'none') { // dont render invisible paths
+			if(typeof pathGroup.opts === 'undefined') {
+				pathGroup['opts'] = self.opts;
+			}
+			if(typeof pathGroup.opts.radius === 'undefined') {
+				pathGroup.opts['radius'] = self.opts.radius;
+			}
+			if(pathGroup.size.x > 0 || pathGroup.size.y > 0) { // if size is not 0, draw
+				let newStyle = '';
+				let delimiter = '';
+				for(let key of Object.keys(myStyle)) {
+					newStyle += delimiter + key + ':' + myStyle[key];
+					delimiter = '; ';
+				}
+				if(pathGroup.path) { // if path exists, draw
+					let opts = pathGroup.opts;
+					for(var i = 0, ilen = pathGroup.path.length; i < ilen; i++) {
+						let path = {
+							attributes:	{style: newStyle},
+							opts:		{
+								close	: opts.close,
+								handles	: opts.handles,
+								radius	: opts.radius
+							},
+							path:		pathGroup.path[i]
+						};
+						npath.buildPath(path);
+					}
 				}
 			}
 		}

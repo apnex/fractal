@@ -13,6 +13,8 @@ Perfect Alignment of nodes
 ![nodeClover](./examples/nodeClover.svg)
 
 ![nodeCpu](./examples/nodeCpu.svg)
+
+![nodeRouter](./examples/nodeRouter.svg)
 #### Problem
 create new diagrams are hard  
 x,y positioning is annoying  

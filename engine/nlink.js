@@ -17,37 +17,30 @@ var nlink = { // this module should be structural only - no style or attributes
 		}
 
 		// override defaults where appropriate
-		let style = {
+		let myStyle = {
 			'stroke': colours['mBlue-500'],
 			'fill': 'none', // default to transparent
 			'stroke-width': 4
 		};
 		if(typeof cell.style !== 'undefined') {
 			if(typeof cell.style['stroke'] !== 'undefined') {
-				style['stroke'] = colours[cell.style['stroke']];
+				myStyle['stroke'] = colours[cell.style['stroke']];
 			}
 			if(typeof cell.style['fill'] !== 'undefined') {
-				style['fill'] = colours[cell.style['fill']];
+				myStyle['fill'] = colours[cell.style['fill']];
 			}
 			if(typeof cell.style['stroke-width'] !== 'undefined') {
-				style['stroke-width'] = cell.style['stroke-width'];
+				myStyle['stroke-width'] = cell.style['stroke-width'];
 			}
 			if(typeof cell.style['stroke-dasharray'] !== 'undefined') {
-				style['stroke-dasharray'] = cell.style['stroke-dasharray'];
+				myStyle['stroke-dasharray'] = cell.style['stroke-dasharray'];
 			}
 		}
 
-		// loop through style{} and build style string
-		let newStyle = '';
-		let delimiter = '';
-		for(let key of Object.keys(style)) {
-			newStyle += delimiter + key + ':' + style[key];
-			delimiter = '; ';
-		}
 		// set all link defaults here
 		let link = {
-			style: {style: newStyle},
-			attributes: {style: newStyle},
+			style: {style: myStyle},
+			attributes: {style: myStyle},
 			opts	: myOpts,
 			path	: vertices
 		};
